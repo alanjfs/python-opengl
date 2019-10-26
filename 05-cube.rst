@@ -14,7 +14,7 @@ the cube and to tell OpenGL how we want to actually project it on the screen.
 Object creation
 -------------------------------------------------------------------------------
 
-We need to define what we mean by a *cube* since there is not such thing as as
+We need to define what we mean by a *cube* since there is not such thing as a
 cube in OpenGL. A cube, when seen from the outside has 6 faces, each being a
 square. We just saw that to render a square, we need two triangles. So, 6
 faces, each of them being made of 2 triangles, we need 12 triangles.
@@ -35,7 +35,7 @@ These vertices describe a cube centered on (0,0,0) that goes from (-1,-1,-1) to
 the quad. If you remember how this rendering primitive considers vertices as a
 succession of triangles, you should also realize there is no way to organize
 our vertices into a triangle strip that would describe our cube. This means we
-have to tell OpenGL explicitly what are our triangles, i.e. we need to
+have to tell OpenGL explicitly about our triangles, i.e. we need to
 describe triangles in terms of vertex indices (relatively to the `V` array we
 just defined):
 
@@ -54,8 +54,8 @@ an `IndexBuffer` for index data:
    I = I.view(gloo.IndexBuffer)
 
 We can now proceed with the actual creation of the cube and upload the
-vertices. Note that we do not specify the `count` argument because we'll bind
-explicitely our own vertex buffer. The `vertex` and `fragment` shader sources
+vertices. Note that we do not specify the `count` argument because we'll explicitly bind
+our own vertex buffer. The `vertex` and `fragment` shader sources
 are given below.
    
 .. code:: python
@@ -69,9 +69,9 @@ And we'll use the indices buffer when actually rendering the cube.
 Scene setup
 -------------------------------------------------------------------------------
 
-The next step is to define the scene. This means we need to say where are our
-objects located and oriented in space, where is our camera located, what kind
-of camera we want to use and ultimately, where do we look at. In this simple
+The next step is to define the scene. This means we need to say where our
+objects are located and oriented in space, where our camera is located, what kind
+of camera we want to use and ultimately, where are we looking. In this simple
 example, we'll use the model-view-projection model that requires 3 matrices:
 
 * `model:` maps from an object's local coordinate space into world space
@@ -118,7 +118,7 @@ z-axis:
    glm.translate(view, 0,0,-5)
 
 Next, we need to define the model matrix and the projection matrix. However,
-we'll not setup them right away because the model matrix will be updated in the
+we won't set them up right away because the model matrix will be updated in the
 `on_draw` function in order to rotate the cube, while the projection matrix
 will be updated as soon as the viewport changes (which is the case when the
 window is first created) in the `on_resize` function.
